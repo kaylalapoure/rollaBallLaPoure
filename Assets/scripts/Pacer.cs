@@ -19,6 +19,11 @@ public class Pacer : MonoBehaviour
             zNew = zMax;
             direction *= -1;
         }
+        else if (zNew <= zMin)
+        {
+            zNew = zMin;
+            direction *= -1;
+        }
         transform.position = new Vector3(7.5f, 0.75f, zNew);
     }
 }
