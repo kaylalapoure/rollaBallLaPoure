@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public Text countText;
     public Text winText;
+    public Transform effect;
 
     private Rigidbody rb;
     private int count;
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour {
         if (other.gameObject.CompareTag("Pick Up"))
         {
             other.gameObject.SetActive(false);
+            Instantiate(effect, other.transform.position, Quaternion.identity);
             count = count + 1;
             SetCountText ();
         }
@@ -41,7 +43,7 @@ public class PlayerController : MonoBehaviour {
     void SetCountText ()
     {
         countText.text = "Count: " + count.ToString ();
-        if(count >=11)
+        if(count >= 17)
         {
             winText.text = "You Win!";
         }
